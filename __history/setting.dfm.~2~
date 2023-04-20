@@ -1,0 +1,196 @@
+object frmSetting: TfrmSetting
+  Left = 0
+  Top = 0
+  ClientHeight = 509
+  ClientWidth = 493
+  Color = clBtnFace
+  DefaultMonitor = dmPrimary
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -13
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  PixelsPerInch = 96
+  TextHeight = 16
+  object JvPageControl1: TJvPageControl
+    Left = 0
+    Top = 0
+    Width = 493
+    Height = 509
+    ActivePage = TabSheet2
+    Align = alClient
+    TabOrder = 0
+    object TabSheet1: TTabSheet
+      Caption = #3605#3633#3657#3591#3588#3656#3634#3648#3594#3639#3656#3629#3617#3605#3656#3629
+      ExplicitTop = 24
+      ExplicitWidth = 281
+      ExplicitHeight = 165
+    end
+    object TabSheet2: TTabSheet
+      Caption = #3592#3633#3604#3585#3634#3619#3612#3641#3657#3651#3594#3657#3591#3634#3609
+      ImageIndex = 1
+      ExplicitTop = 24
+      ExplicitWidth = 281
+      ExplicitHeight = 165
+      object JvPageControl2: TJvPageControl
+        Left = 0
+        Top = 0
+        Width = 485
+        Height = 478
+        ActivePage = TabSheet3
+        Align = alClient
+        TabOrder = 0
+        object TabSheet3: TTabSheet
+          Caption = #3648#3614#3636#3656#3617#3612#3641#3657#3651#3594#3657#3591#3634#3609
+          ExplicitLeft = 0
+          object Label1: TLabel
+            Left = 32
+            Top = 26
+            Width = 62
+            Height = 16
+            Caption = #3594#3639#3656#3629#3648#3586#3657#3634#3619#3632#3610#3610
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label2: TLabel
+            Left = 50
+            Top = 66
+            Width = 44
+            Height = 16
+            Caption = #3619#3627#3633#3626#3612#3656#3634#3609
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label3: TLabel
+            Left = 32
+            Top = 106
+            Width = 62
+            Height = 16
+            Caption = #3594#3639#3656#3629#3609#3634#3617#3626#3585#3640#3621
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label4: TLabel
+            Left = 52
+            Top = 146
+            Width = 42
+            Height = 16
+            Caption = #3648#3621#3586#3610#3633#3605#3619
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
+          object cxTextEdit1: TcxTextEdit
+            Left = 100
+            Top = 23
+            ParentFont = False
+            Properties.Alignment.Horz = taCenter
+            Style.Font.Charset = DEFAULT_CHARSET
+            Style.Font.Color = clWindowText
+            Style.Font.Height = -13
+            Style.Font.Name = 'Tahoma'
+            Style.Font.Style = []
+            Style.IsFontAssigned = True
+            TabOrder = 0
+            Width = 235
+          end
+          object cxTextEdit2: TcxTextEdit
+            Left = 100
+            Top = 63
+            ParentFont = False
+            Properties.Alignment.Horz = taCenter
+            Style.Font.Charset = DEFAULT_CHARSET
+            Style.Font.Color = clWindowText
+            Style.Font.Height = -13
+            Style.Font.Name = 'Tahoma'
+            Style.Font.Style = []
+            Style.IsFontAssigned = True
+            TabOrder = 1
+            Width = 235
+          end
+          object cxTextEdit3: TcxTextEdit
+            Left = 100
+            Top = 103
+            ParentFont = False
+            Properties.Alignment.Horz = taCenter
+            Style.Font.Charset = DEFAULT_CHARSET
+            Style.Font.Color = clWindowText
+            Style.Font.Height = -13
+            Style.Font.Name = 'Tahoma'
+            Style.Font.Style = []
+            Style.IsFontAssigned = True
+            TabOrder = 2
+            Width = 235
+          end
+          object cxTextEdit4: TcxTextEdit
+            Left = 100
+            Top = 143
+            ParentFont = False
+            Properties.Alignment.Horz = taCenter
+            Style.Font.Charset = DEFAULT_CHARSET
+            Style.Font.Color = clWindowText
+            Style.Font.Height = -13
+            Style.Font.Name = 'Tahoma'
+            Style.Font.Style = []
+            Style.IsFontAssigned = True
+            TabOrder = 3
+            Width = 235
+          end
+          object cxButton1: TcxButton
+            Left = 234
+            Top = 173
+            Width = 101
+            Height = 33
+            Caption = #3648#3614#3636#3656#3617#3612#3641#3657#3651#3594#3657#3591#3634#3609
+            OptionsImage.Glyph.SourceDPI = 96
+            OptionsImage.Glyph.Data = {
+              89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
+              610000001974455874536F6674776172650041646F626520496D616765526561
+              647971C9653C0000001B744558745469746C65004164643B506C75733B426172
+              733B526962626F6E3B9506332F0000004749444154785EE592C90900200C046D
+              D0A6ACCAEE4604E32B8AB8011F3E0602590672244062DBCCA532E8F5D7024017
+              AC98C11B4205C6D10896F50486B744235CA09FF1FD274A34995FABF9E946D7E8
+              0000000049454E44AE426082}
+            TabOrder = 4
+          end
+        end
+        object TabSheet4: TTabSheet
+          Caption = #3649#3585#3657#3652#3586#3586#3657#3629#3617#3641#3621#3612#3641#3657#3651#3594#3657#3591#3634#3609
+          ImageIndex = 1
+        end
+      end
+    end
+  end
+  object DCP_idea1: TDCP_idea
+    Id = 12
+    Algorithm = 'IDEA'
+    MaxKeySize = 128
+    BlockSize = 64
+    Left = 304
+    Top = 376
+  end
+  object DCP_sha11: TDCP_sha1
+    Id = 2
+    Algorithm = 'SHA1'
+    HashSize = 160
+    Left = 368
+    Top = 376
+  end
+end

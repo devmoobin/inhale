@@ -1,0 +1,21 @@
+program Inhaler;
+
+uses
+  Vcl.Forms,
+  main in 'main.pas' {Form5},
+  dataM in 'dataM.pas' {DataMF: TDataModule},
+  showMain in 'showMain.pas' {showMainF},
+  department in 'department.pas' {departmentF},
+  department2 in 'department2.pas' {department2F},
+  login in 'login.pas' {Form1};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TDataMF, DataMF);
+  Application.CreateForm(TshowMainF, showMainF);
+  Application.CreateForm(TForm1, Form1);
+  Application.Run;
+end.

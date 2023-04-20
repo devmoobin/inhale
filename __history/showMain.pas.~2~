@@ -1,0 +1,34 @@
+unit showMain;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, AdvShaper;
+
+type
+  TshowMainF = class(TForm)
+    AdvShaper1: TAdvShaper;
+    procedure AdvShaper1DblClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  showMainF: TshowMainF;
+
+implementation
+
+{$R *.dfm}
+
+uses main;
+
+procedure TshowMainF.AdvShaper1DblClick(Sender: TObject);
+begin
+ Application.CreateForm(TForm5,Form5);
+  Form5.Show;
+end;
+
+end.

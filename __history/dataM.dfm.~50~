@@ -1,0 +1,388 @@
+object DataMF: TDataMF
+  OldCreateOrder = False
+  Height = 661
+  Width = 768
+  object MySQLUniProvider1: TMySQLUniProvider
+    Left = 136
+    Top = 24
+  end
+  object uni_gxsoft: TUniConnection
+    ProviderName = 'mySQL'
+    Port = 3306
+    Database = 'inhalerdb'
+    Username = 'donsak_u'
+    Server = '192.168.88.99'
+    Left = 56
+    Top = 24
+    EncryptedPassword = 'B6FFB1FFB3FFCFFFC8FFCFFFCFFFCFFFC8FFC7FF'
+  end
+  object uni_HOsXP1: TUniConnection
+    ProviderName = 'PostgreSQL'
+    Port = 5432
+    Database = 'hosxpxe'
+    Username = 'hosxpxe'
+    Server = '192.168.88.199'
+    Left = 40
+    Top = 88
+    EncryptedPassword = '97FF90FF8CFF87FF8FFF87FF9AFFBFFFCEFFCEFFCCFFCAFFC7FF'
+  end
+  object QPatient: TUniQuery
+    Connection = uni_HOsXP
+    SQL.Strings = (
+      
+        'select ov.*,concat(p.pname,p.fname,'#39' '#39',p.lname)as ff,ksk.departm' +
+        'ent from ovst ov '
+      'LEFT join patient p on ov.hn = p.hn'
+      'left join kskdepartment ksk on ov.main_dep = ksk.depcode'
+      'where ov.vstdate = CURRENT_DATE and ov.hn = :xhn')
+    Left = 288
+    Top = 16
+    ParamData = <
+      item
+        DataType = ftString
+        Name = 'xhn'
+        ParamType = ptInput
+        Value = '000025371'
+      end>
+  end
+  object DSPatient: TDataSource
+    DataSet = QPatient
+    Left = 336
+    Top = 16
+  end
+  object QImage: TUniQuery
+    Connection = uni_HOsXP
+    SQL.Strings = (
+      'select * from patient_image  where hn = :xhn')
+    Left = 288
+    Top = 88
+    ParamData = <
+      item
+        DataType = ftString
+        Name = 'xhn'
+        ParamType = ptInput
+        Value = nil
+      end>
+  end
+  object DSPatientImage: TDataSource
+    DataSet = QImage
+    Left = 376
+    Top = 88
+  end
+  object Query: TUniQuery
+    Connection = uni_gxsoft
+    SQL.Strings = (
+      
+        'insert into inhaler (icode,nn,vn,chk1,chk2,chk3,chk4,chk5,chk6,c' +
+        'hk7,chk8,chk9,chk10,chk11,chk12,chk13,chk14,note,hn,ff,vstdate,c' +
+        'color) VALUES (:xicode,:xnn,:xvn,:xchk1,:xchk2,:xchk3,:xchk4,:xc' +
+        'hk5,:xchk6,:xchk7,:xchk8,:xchk9,:xchk10,:xchk11,:xchk12,:xchk13,' +
+        ':xchk14,:xnote,:xhn,:xff,:xvstdate,:xccolor)')
+    Left = 304
+    Top = 168
+    ParamData = <
+      item
+        DataType = ftString
+        Name = 'xicode'
+        ParamType = ptInput
+        Value = nil
+      end
+      item
+        DataType = ftString
+        Name = 'xnn'
+        ParamType = ptInput
+        Value = nil
+      end
+      item
+        DataType = ftString
+        Name = 'xvn'
+        ParamType = ptInput
+        Value = nil
+      end
+      item
+        DataType = ftBoolean
+        Name = 'xchk1'
+        ParamType = ptInput
+        Value = nil
+      end
+      item
+        DataType = ftBoolean
+        Name = 'xchk2'
+        ParamType = ptInput
+        Value = nil
+      end
+      item
+        DataType = ftBoolean
+        Name = 'xchk3'
+        ParamType = ptInput
+        Value = nil
+      end
+      item
+        DataType = ftBoolean
+        Name = 'xchk4'
+        ParamType = ptInput
+        Value = nil
+      end
+      item
+        DataType = ftBoolean
+        Name = 'xchk5'
+        ParamType = ptInput
+        Value = nil
+      end
+      item
+        DataType = ftBoolean
+        Name = 'xchk6'
+        ParamType = ptInput
+        Value = nil
+      end
+      item
+        DataType = ftBoolean
+        Name = 'xchk7'
+        ParamType = ptInput
+        Value = nil
+      end
+      item
+        DataType = ftBoolean
+        Name = 'xchk8'
+        ParamType = ptInput
+        Value = nil
+      end
+      item
+        DataType = ftBoolean
+        Name = 'xchk9'
+        ParamType = ptInput
+        Value = nil
+      end
+      item
+        DataType = ftBoolean
+        Name = 'xchk10'
+        ParamType = ptInput
+        Value = nil
+      end
+      item
+        DataType = ftBoolean
+        Name = 'xchk11'
+        ParamType = ptInput
+        Value = nil
+      end
+      item
+        DataType = ftBoolean
+        Name = 'xchk12'
+        ParamType = ptInput
+        Value = nil
+      end
+      item
+        DataType = ftBoolean
+        Name = 'xchk13'
+        ParamType = ptInput
+        Value = nil
+      end
+      item
+        DataType = ftBoolean
+        Name = 'xchk14'
+        ParamType = ptInput
+        Value = nil
+      end
+      item
+        DataType = ftString
+        Name = 'xnote'
+        ParamType = ptInput
+        Value = nil
+      end
+      item
+        DataType = ftString
+        Name = 'xhn'
+        ParamType = ptInput
+        Value = nil
+      end
+      item
+        DataType = ftString
+        Name = 'xff'
+        ParamType = ptInput
+        Value = nil
+      end
+      item
+        DataType = ftDateTime
+        Name = 'xvstdate'
+        ParamType = ptInput
+        Value = nil
+      end
+      item
+        DataType = ftString
+        Name = 'xccolor'
+        ParamType = ptInput
+        Value = nil
+      end>
+  end
+  object QInhaler: TUniQuery
+    Connection = uni_gxsoft
+    SQL.Strings = (
+      'select * from inhaler where hn= :xhn order by vstdate desc')
+    Left = 256
+    Top = 264
+    ParamData = <
+      item
+        DataType = ftString
+        Name = 'xhn'
+        ParamType = ptInput
+        Value = '000018601'
+      end>
+  end
+  object DSInhaler: TDataSource
+    DataSet = QInhaler
+    Left = 320
+    Top = 264
+  end
+  object QOpitemrece: TUniQuery
+    Connection = uni_HOsXP
+    SQL.Strings = (
+      
+        'select op.vn,op.icode,concat(d1.name,'#39'  '#39',d1.strength,'#39'  '#39',d1.un' +
+        'its) as nn,op.qty from opitemrece op'
+      'left join drugitems d1 on op.icode = d1.icode'
+      
+        'where vn = :xvn and d1.name <> '#39#39' and op.icode in ('#39'1540103'#39','#39'15' +
+        '90103'#39','#39'1460309'#39','#39'1600502'#39','#39'1470543'#39','#39'1000268'#39')'
+      
+        'and op.icode not in (select icode from gxsoft.inhaler where vn =' +
+        ' :xvn) '
+      ''
+      'union'
+      ''
+      'select op.vn,op.icode,d2.name,op.qty from opitemrece op'
+      'left join nondrugitems d2 on op.icode = d2.icode'
+      
+        'where vn = :xvn and d2.name <> '#39#39' and op.icode in ('#39'1540103'#39','#39'15' +
+        '90103'#39','#39'1460309'#39','#39'1600502'#39','#39'1470543'#39','#39'1000268'#39')'
+      
+        'and op.icode not in (select icode from gxsoft.inhaler where vn =' +
+        ' :xvn) ')
+    Left = 488
+    Top = 184
+    ParamData = <
+      item
+        DataType = ftString
+        Name = 'xvn'
+        ParamType = ptInput
+        Value = '630916062809'
+      end>
+  end
+  object DSOpitemrece: TDataSource
+    DataSet = QOpitemrece
+    Left = 576
+    Top = 192
+  end
+  object QPatient2: TUniQuery
+    Connection = uni_HOsXP
+    SQL.Strings = (
+      
+        'select ov.*,concat(p.pname,p.fname,'#39' '#39',p.lname)as ff,ksk.departm' +
+        'ent from ovst ov '
+      'LEFT join patient p on ov.hn = p.hn'
+      'left join kskdepartment ksk on ov.main_dep = ksk.depcode'
+      'where ov.hn = :xhn '
+      
+        'and vstdate in (select vstdate from opitemrece where icode in ('#39 +
+        '1540103'#39','#39'1590103'#39','#39'1460309'#39','#39'1600502'#39','#39'1470543'#39','#39'1000268'#39') and ' +
+        'hn = :xhn )'
+      'order by vstdate')
+    Left = 104
+    Top = 168
+    ParamData = <
+      item
+        DataType = ftString
+        Name = 'xhn'
+        ParamType = ptInput
+        Value = '000025371'
+      end>
+  end
+  object DSPatient2: TDataSource
+    DataSet = QPatient2
+    Left = 192
+    Top = 128
+  end
+  object PostgreSQLUniProvider1: TPostgreSQLUniProvider
+    Left = 136
+    Top = 96
+  end
+  object ODBCUniProvider1: TODBCUniProvider
+    Left = 544
+    Top = 344
+  end
+  object uni_HOsXP: TUniConnection
+    ProviderName = 'PostgreSQL'
+    Port = 5432
+    Database = 'hosxpxe'
+    Username = 'hosxpxe'
+    Server = '192.168.88.199'
+    Left = 112
+    Top = 256
+    EncryptedPassword = '97FF90FF8CFF87FF8FFF87FF9AFFBFFFCEFFCEFFCCFFCAFFC7FF'
+  end
+  object QAddUser: TUniQuery
+    Connection = uni_gxsoft
+    SQL.Strings = (
+      
+        'insert into logins (user,pass,ff,cid,access_level) VALUES (:xuse' +
+        'r,:xpass,:xff,:xcid,:xaccess_level)')
+    Left = 400
+    Top = 416
+    ParamData = <
+      item
+        DataType = ftString
+        Name = 'xuser'
+        ParamType = ptInput
+        Value = nil
+      end
+      item
+        DataType = ftString
+        Name = 'xpass'
+        ParamType = ptInput
+        Value = nil
+      end
+      item
+        DataType = ftString
+        Name = 'xff'
+        ParamType = ptInput
+        Value = nil
+      end
+      item
+        DataType = ftString
+        Name = 'xcid'
+        ParamType = ptInput
+        Value = nil
+      end
+      item
+        DataType = ftString
+        Name = 'xaccess_level'
+        ParamType = ptInput
+        Value = nil
+      end>
+  end
+  object QUpdateUser: TUniQuery
+    Connection = uni_gxsoft
+    SQL.Strings = (
+      'update logins set ff = :xff,pass = :xpass where cid = :xcid')
+    Left = 304
+    Top = 432
+    ParamData = <
+      item
+        DataType = ftString
+        Name = 'xff'
+        ParamType = ptInput
+        Value = nil
+      end
+      item
+        DataType = ftString
+        Name = 'xpass'
+        ParamType = ptInput
+        Value = nil
+      end
+      item
+        DataType = ftString
+        Name = 'xcid'
+        ParamType = ptInput
+        Value = nil
+      end>
+  end
+end
